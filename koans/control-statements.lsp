@@ -17,11 +17,11 @@
       (if t
           (setf result "true value")
           (setf result "false value"))
-      (assert-equal result ____)
+      (assert-equal result "true value")
       (if nil
           (setf result "true value")
           (setf result "false value"))
-      (assert-equal result ____)))
+      (assert-equal result "false value")))
 
 
 (define-test test-when-and-unless
@@ -36,10 +36,10 @@
         (unless (> x 5)
           (setf result-2 x)
           (push x unless-nums)))
-      (assert-equal result-1 ___)
-      (assert-equal result-2 ___)
-      (assert-equal when-nums ___)
-      (assert-equal unless-nums ___)))
+      (assert-equal result-1 10)
+      (assert-equal result-2 5)
+      (assert-equal when-nums '(10 9 8 7 6))
+      (assert-equal unless-nums '(5 4 3 2 1))))
 
 
 (define-test test-and-short-circuits
